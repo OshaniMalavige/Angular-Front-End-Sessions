@@ -1,0 +1,37 @@
+<!--<div class="container write-post d-flex justify-content-end">
+  <button type="button" class="btn btn-outline-dark">
+    Write a blog
+  </button>
+</div>
+<div class="blog-post">
+  <app-blog *ngFor="let blog of blogs" [blog]="blog"></app-blog>
+</div>-->
+<div class="blog-card">
+ <div class="row justify-content-center">
+   <h4 class="blog-title">
+     {{ blogs.title }}
+   </h4>
+   <span> {{ blogs.date | date }} </span>
+   <div class="blog-cover-image">
+     <img src="{{ blogs.imgUrl }}" alt="img1" />
+   </div>
+   <p class="blog-desc">
+     {{ blogs.description }}
+   </p>
+   <div class="container d-flex">
+     <button type="button" (click)="deletePosts(blogs.id)" class="btn btn-danger btn-block"><i class="fa fa-trash">
+       Delete
+     </i>
+     </button>
+   </div>
+   <div class="blog-rating">
+     <ul class="list-inline rlist"
+         *ngFor="let star of stars" style="display: inline-block">
+       <li (click)="countRate(star,blogs.id)"
+           [ngClass]="{'selected': (star <= blogs.rating)}">
+         <i class="fa fa-star"></i>
+       </li>
+     </ul>
+   </div>
+  </div>
+</div>
